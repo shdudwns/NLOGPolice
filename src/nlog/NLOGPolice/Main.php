@@ -99,9 +99,9 @@ class Main extends PluginBase implements Listener{
  	 
  	 public function onCommand(CommandSender $sender,Command $cmd, $label,array $args) {
  	 	
- 	 	$msg = "§b§o [ 알림 ] §7/police <add | remove> <Username> \n §b§o[ 알림 ] §7/police list";
+ 	 	$msg = "§b§o [ 알림 ] §7/경찰 <추가 | 삭제> <이름> \n §b§o[ 알림 ] §7/경찰 목록";
  	 	
- 	 	if(strtolower($cmd->getName() === "police")) {
+ 	 	if(strtolower($cmd->getName() === "경찰")) {
  	 		if (!($sender->isOp())) {
  	 			$sender->sendMessage("§b§o [ 알림 ] §7권한이 없습니다.");
  	 			return true; //OP 가 아닐 때 - 안전빵으로 한번 더ㅋㅋ
@@ -111,7 +111,7 @@ class Main extends PluginBase implements Listener{
  	 			return true;
  	 		}
 			#-----------------------------------------------------------------------------
- 	 		if ($args[0] === "add") {
+ 	 		if ($args[0] === "추가") {
  	 			if (!(isset($args[1]))) {
  	 				$sender->sendMessage($msg);
  	 				return true;
@@ -122,7 +122,7 @@ class Main extends PluginBase implements Listener{
 			return true;
  	 		}
 			#-----------------------------------------------------------------------------
- 	 		if ($args[0] === "remove") {
+ 	 		if ($args[0] === "삭제") {
  	 			if (!(isset($args[1]))) {
  	 				$sender->sendMessage($msg);
  	 				return true;
@@ -138,7 +138,7 @@ class Main extends PluginBase implements Listener{
  	 			return true;
  	 		}
 			#-----------------------------------------------------------------------------
- 	 		if ($args[0] === "list") {
+ 	 		if ($args[0] === "목록") {
  	 			$list = implode(", ", $this->getPolice());
  	 			$sender->sendMessage("§b§o [ 알림 ] §7경찰 목록 : " . $list);
  	 			return true; //리스트
